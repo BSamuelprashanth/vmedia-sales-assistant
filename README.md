@@ -1,58 +1,68 @@
 # ⚡ VMedia Sales Console — Ultimate Edition
 
-> A production-grade, feature-rich web assistant engineered for high-efficiency sales operations. Designed to eliminate tab-switching mid-call by centralizing customer intake, dynamic speed sizing, provincial tax calculations, call duration tracking, and compliance scripting into a single-page interface.
+> A production-grade, feature-rich web assistant engineered for high-efficiency sales operations. Built to eliminate mid-call tab-switching by unifying customer intake, dynamic speed sizing, provincial tax calculations, call pacing, and compliance scripting into a zero-latency single-page application.
 
 ---
 
-## 🌟 Overview
+## 📸 Application Visuals
 
-The **VMedia Sales Console** is a high-performance client-side application built specifically for customer care and sales representatives. Drawing from real-world telecom experience, it bridges the gap between fast-paced customer interactions and rigorous data collection accuracy. 
-
-By unifying multiple workflows into a single responsive screen, the console reduces Handle Time (AHT) while ensuring complete regulatory compliance and accurate billing calculations.
-
----
-
-## 🚀 Key Features & Architectural Highlights
-
-### 1. ⏱️ Precision Call Timer & Audio Alerts
-* **Interactive Countdown:** Features an integrated 3-minute interactive call countdown timer to help agents pace discovery calls effectively.
-* **Web Audio API Integration:** Custom frequency audio beeps alert agents at critical time milestones without requiring external audio files.
-* **Session Persistence:** Automatically logs session state and timer data using browser `localStorage` to prevent accidental data loss on page refresh.
-
-### 2. ⚡ Dynamic Speed Sizing Calculator
-* Automatically estimates and recommends optimal internet speed tiers based on real-time household inputs (number of connected devices, streaming habits, gaming, and remote work requirements).
-* Built using a scalable multiplier engine ($15 \text{ Mbps}$ base factor per high-demand device).
-
-### 3. 🧮 Live Provincial Tax Calculator
-* Real-time calculation of federal and provincial taxes (**GST, PST, HST, QST**) across all Canadian provinces and territories.
-* Instant rate updating that ensures accurate quote generation before checkout or order placement.
-
-### 4. 📋 One-Tap Clipboard Automation
-* Instant copy triggers for individual customer fields (Name, Phone, Address, Account ID) or a comprehensive multi-line text package.
-* Streamlines CRM data entry by formatting data instantly for copy-pasting directly into internal ticketing systems.
-
-### 5. ✓ Call Progress Checklist & Script Repository
-* **Compliance Tracker:** Interactive progress checklist ensuring agents cover mandatory disclosures (discovery, terms & conditions, 3-email overview, and closing).
-* **Script Library:** Built-in modal library providing one-tap copying for standard compliance scripts, rebuttal handling, payment instructions, and closing statements.
-
-### 6. 🌓 Persistent Theme Engine
-* Fully responsive design system featuring smooth CSS transitions between custom Light and Dark modes.
-* Automatically detects system preferences and retains theme settings via local storage.
+| ☀️ Light Theme Dashboard | 🌙 Dark Theme Dashboard |
+| :---: | :---: |
+| ![VMedia Sales Console Light Mode](dashboard-light.jpg) | ![VMedia Sales Console Dark Mode](dashboard-dark.jpg) |
 
 ---
 
-## 🛠️ Tech Stack & Design System
+## 🌟 Overview & Business Impact
 
-* **Frontend Architecture:** Pure HTML5, Semantic DOM structure.
-* **Styling & UI:** Advanced CSS3 (CSS Variables, Flexbox/Grid, Glassmorphism UI components, custom keyframe animations).
-* **Logic & Interactivity:** Vanilla JavaScript (ES6+, DOM Manipulation, Event Delegation, Web Audio API, LocalStorage API).
-* **Design Philosophy:** Tokenized design system optimized for high-density information display and zero-latency interaction.
+During high-volume outbound and inbound sales interactions, representative efficiency often suffers from application fragmentation—jumping across separate tabs for postal lookups, speed calculators, tax reference sheets, and CRM copy buffers.
+
+The **VMedia Sales Console** addresses this operational friction directly by consolidating core workflow tools into a unified, high-density interface.
+
+### Key Operational Outcomes:
+* **Reduced Average Handle Time (AHT):** Streamlines data intake with one-tap field copying and unified formatting.
+* **Zero Billing Errors:** Automated provincial tax engine prevents incorrect rate quotes prior to order submission.
+* **Strict Quality & Compliance Adherence:** Real-time call timer and interactive checklists ensure mandatory disclosures are completed on every call.
+* **Zero Infrastructure Overhead:** Client-side architecture runs locally in any browser with no server runtime or database dependency.
 
 ---
 
-## 📂 Repository Structure
+## 🚀 Key Features & System Capabilities
+
+### 1. ⏱️ Precision Call Timer & Web Audio Alerts
+* **Pacing Engine:** Integrated 3-minute interactive call timer designed to keep reps on schedule during discovery and pitch phases.
+* **Audio Milestones:** Uses the native **Web Audio API** to generate pleasant frequency beeps at key time thresholds (e.g., 60-second warning, expiration) without requiring external MP3 assets.
+* **Session Memory:** Uses `localStorage` to persist session count, elapsed time, and daily customer intake records across browser refreshes.
+
+### 2. ⚡ Dynamic Bandwidth & Speed Sizing Calculator
+* **Household Device Multiplier:** Calculates recommended internet download speeds based on active device counts and high-bandwidth usage profiles.
+* **Scalable Sizing Logic:** Incorporates a baseline multiplier ($15 \text{ Mbps}$ per high-demand device) with intelligent rounding to standard telecom package tiers (e.g., $50 \text{ Mbps}$, $100 \text{ Mbps}$, $500 \text{ Mbps}$, $1 \text{ Gbps}$).
+
+### 3. 🧮 Real-Time Canadian Provincial Tax Engine
+* **Territorial Accuracy:** Pre-configured with complete federal and provincial tax tables for all Canadian provinces and territories (**GST, PST, HST, QST**).
+* **Live Calculation:** Dynamically parses base service pricing and outputs exact tax breakdowns and total monthly costs as amounts are typed.
+
+### 4. 📋 One-Tap Clipboard Automation & CRM Formatting
+* **Field-Level Copying:** Dedicated copy triggers alongside each customer field (First Name, Last Name, Phone, Email, Address, Unit, City, Postal Code).
+* **Composite Payload:** A single **"Copy All Details"** trigger formats the entire intake sheet into a clean, multi-line plain-text payload for instant paste actions into CRM systems or ticketing boards.
+
+### 5. ✓ Compliance Tracker & Modal Script Repository
+* **Interactive Checklist:** Tracks mandatory conversation checkpoints (Discovery, Terms & Conditions, 3-Email Overview, Order Closing).
+* **Quick Scripts Modal:** Instant-access modal repository containing standardized compliance disclosures, objection handlers, and payment instructions with built-in clipboard triggers.
+
+### 6. 🌓 Tokenized Design System & Theme Engine
+* Dynamic theme toggle supporting custom **Light Mode** and **Dark Mode**.
+* Preserves theme state across user sessions via `localStorage` and respects native operating system preferences (`prefers-color-scheme`).
+
+---
+
+## 🛠️ Technical Architecture & Stack
 
 ```text
-📦 vmedia-sales-assistant
-├── 📄 index.html          # Complete standalone single-page application (HTML, CSS, JS)
-└── 📄 README.md           # Comprehensive project documentation
+┌────────────────────────────────────────────────────────────────────────┐
+│                        VMedia Sales Console                            │
+├──────────────────┬───────────────────┬─────────────────────────────────┤
+│  HTML5           │  CSS3             │  Vanilla JavaScript (ES6+)      │
+│  • Semantic DOM  │  • Custom Tokens  │  • Event Delegation             │
+│  • Accessibility │  • Flexbox / Grid │  • Web Audio API                │
+│  • Micro-UI      │  • Animations     │  • LocalStorage State           │
+└──────────────────┴───────────────────┴─────────────────────────────────┘
